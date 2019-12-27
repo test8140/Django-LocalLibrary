@@ -22,6 +22,12 @@ class Book(models.Model):
         return reverse('book-detail', args=[str(self.slug)])
 
     
+    def display_genre(self):
+        return ', ' .join([genre.name for genre in self.genre.all()[:3]])
+    display_genre.short_description = 'Genre'
+
+    
+    
     def __str__(self):
         return self.title
 
