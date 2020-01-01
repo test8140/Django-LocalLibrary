@@ -12,3 +12,19 @@ urlpatterns = [
     path('authors/', views.AuthorListView.as_view(), name='authors'),
     path('author/<str:slug>', views.AuthorDetailView.as_view(), name='author-detail'),
 ]
+
+urlpatterns += [
+    path('mybooks/', views.loanedBooksByUserListView.as_view(), name='my-borrowed'),
+] 
+
+
+urlpatterns += [
+    path('book/<str:slug>/renew/', views.renew_book_librarian, name='renew-book-librarian'),
+]
+
+
+urlpatterns += [
+    path('author/create/', views.AuthorCreate.as_view(), name='author-create'),
+    path('author/<str:slug>/update/', views.AuthorUpdate.as_view(), name='author-update'),
+    path('author/<str:slug>/delete/', views.AuthorDelete.as_view(), name='author-delete'),
+]  
